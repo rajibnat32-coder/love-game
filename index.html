@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Piece by Piece</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,600&family=Cormorant+Garamond:wght@400;600&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<div id="ambient"></div>
+
+<audio id="bg-music" loop preload="auto"></audio>
+<button id="music-toggle" class="music-btn" title="Toggle music" onclick="toggleMusic()">♪</button>
+
+<div class="stage">
+
+  <!-- INTRO -->
+  <section id="screen-intro" class="screen">
+    <div class="eyebrow">a game, of sorts</div>
+    <h1 class="title">Piece by Piece</h1>
+    <p class="sub">A few of my favorite moments with you got a little... scrambled.
+      Put them back together, and something's waiting on the other side.</p>
+    <button class="btn" onclick="startGame()">Begin</button>
+  </section>
+
+  <!-- PUZZLE -->
+  <section id="screen-puzzle" class="screen hidden">
+    <div class="progress">Memory <b id="puzzle-num">1</b> of <b id="puzzle-total">5</b></div>
+    <div class="puzzle-wrap" style="position:relative;">
+      <div class="puzzle-grid" id="puzzle-grid"></div>
+      <div class="reveal-overlay" id="reveal-overlay"></div>
+    </div>
+    <div class="caption" id="puzzle-caption"></div>
+    <div style="margin-top:22px;">
+      <button class="btn hidden" id="continue-btn" onclick="nextPuzzle()">Continue</button>
+    </div>
+  </section>
+
+  <!-- FINALE -->
+  <section id="screen-finale" class="screen hidden">
+    <div class="eyebrow">every piece, together</div>
+    <h1 class="title">Us</h1>
+    <div class="collage" id="collage"></div>
+    <p class="sub script" style="font-size:30px; color:var(--gold); margin-top:10px;" id="finale-question">
+      Will you marry me?
+    </p>
+    <div style="display:flex; gap:18px; justify-content:center; margin-top:18px; position:relative; height:70px; align-items:center;">
+      <button class="btn" id="yes-btn" onclick="sayYes()">Yes</button>
+      <button class="btn ghost no-btn" id="no-btn">No</button>
+    </div>
+    <footer class="note">(the "no" button doesn't really want to be pressed)</footer>
+  </section>
+
+  <!-- CELEBRATION -->
+  <section id="screen-celebrate" class="screen hidden">
+    <div class="eyebrow">she said</div>
+    <h1 class="title" style="color:var(--gold); font-size:clamp(48px,9vw,80px);">Yes.</h1>
+    <p class="sub">Every piece was worth it.</p>
+  </section>
+
+</div>
+<audio id="bg-music" loop></audio>
+
+<script src="script.js"></script>
+</body>
+</html>
